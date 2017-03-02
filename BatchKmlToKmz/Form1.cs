@@ -151,7 +151,7 @@ namespace WindowsFormsApplication1
 
                                 writer.WriteStartElement("Icon");
                                     writer.WriteStartElement("href");
-                                    writer.WriteValue("images/" + jpgFileName);
+                                    writer.WriteValue(jpgFileName);
                                     writer.WriteEndElement();
                                 writer.WriteEndElement();
 
@@ -201,24 +201,25 @@ namespace WindowsFormsApplication1
 
 
                     //Struktura katalogów
-                    if (Directory.Exists(dirPath + @"\images"))
-                        Directory.Delete(dirPath + @"\images", true);
-                    Directory.CreateDirectory(dirPath + @"\images");
-                    File.Copy(dirPath + @"\" + Path.GetFileNameWithoutExtension(filePath) + ".jpg", dirPath + @"\images\" + Path.GetFileNameWithoutExtension(filePath) + ".jpg");
+                    //if (Directory.Exists(dirPath + @"\images"))
+                    //    Directory.Delete(dirPath + @"\images", true);
+                    //Directory.CreateDirectory(dirPath + @"\images");
+                    //File.Copy(dirPath + @"\" + Path.GetFileNameWithoutExtension(filePath) + ".jpg", dirPath + @"\images\" + Path.GetFileNameWithoutExtension(filePath) + ".jpg");
                     //komprezja
                     ProcessStartInfo startInfo = new ProcessStartInfo();
                     startInfo.CreateNoWindow = true;
                     startInfo.UseShellExecute = false;
                     startInfo.FileName = "zip.exe";
                     startInfo.WindowStyle = ProcessWindowStyle.Normal;
-                    startInfo.Arguments = "-0 -r \"" + dirPath + "\\" + Path.GetFileNameWithoutExtension(filePath) + ".kmz\" " + "images " + "doc.kml";
+                    startInfo.Arguments = "-0 -r -j " + dirPath + "\\" + Path.GetFileNameWithoutExtension(filePath) + ".kmz " + Path.Combine(dirPath, jpgFileName) + " " + Path.Combine(dirPath,"doc.kml");
+                    //startInfo.Arguments = " -0 -r " + dirPath + "\\" + Path.GetFileNameWithoutExtension(filePath) + ".kmz " + dirPath + "\\images " + dirPath + "\\doc.kml";
                     using (Process exeProcess = Process.Start(startInfo))
                     {
                         exeProcess.WaitForExit();
                     }
                     //sprzątanie i komunikaty
-                    Directory.Delete(dirPath + @"\images", true);
-                    //File.Delete(dirPath + "\\doc.kml");
+                    //Directory.Delete(dirPath + @"\images", true);
+                    File.Delete(dirPath + "\\doc.kml");
                     rtbAkcja.AppendText("Wykonano " + stIterInfo + "\n");
                     rtbAkcja.ScrollToCaret();
                     //System.Threading.Thread.Sleep(1000);
