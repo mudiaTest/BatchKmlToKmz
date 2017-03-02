@@ -34,6 +34,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.rtbInfo = new System.Windows.Forms.RichTextBox();
+            this.rtbAkcja = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // dlgOpen
@@ -57,12 +59,12 @@
             this.cblMain.FormattingEnabled = true;
             this.cblMain.Location = new System.Drawing.Point(12, 45);
             this.cblMain.Name = "cblMain";
-            this.cblMain.Size = new System.Drawing.Size(440, 379);
+            this.cblMain.Size = new System.Drawing.Size(440, 274);
             this.cblMain.TabIndex = 1;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 430);
+            this.button2.Location = new System.Drawing.Point(12, 325);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 23);
             this.button2.TabIndex = 2;
@@ -72,7 +74,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(142, 430);
+            this.button3.Location = new System.Drawing.Point(142, 325);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 23);
             this.button3.TabIndex = 3;
@@ -82,7 +84,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 459);
+            this.button4.Location = new System.Drawing.Point(12, 354);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 4;
@@ -90,11 +92,29 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // rtbInfo
+            // 
+            this.rtbInfo.Location = new System.Drawing.Point(12, 474);
+            this.rtbInfo.Name = "rtbInfo";
+            this.rtbInfo.Size = new System.Drawing.Size(440, 132);
+            this.rtbInfo.TabIndex = 5;
+            this.rtbInfo.Text = "";
+            // 
+            // rtbAkcja
+            // 
+            this.rtbAkcja.Location = new System.Drawing.Point(12, 383);
+            this.rtbAkcja.Name = "rtbAkcja";
+            this.rtbAkcja.Size = new System.Drawing.Size(440, 85);
+            this.rtbAkcja.TabIndex = 6;
+            this.rtbAkcja.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 489);
+            this.ClientSize = new System.Drawing.Size(472, 618);
+            this.Controls.Add(this.rtbAkcja);
+            this.Controls.Add(this.rtbInfo);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -114,6 +134,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox rtbInfo;
+        private System.Windows.Forms.RichTextBox rtbAkcja;
     }
 }
 
